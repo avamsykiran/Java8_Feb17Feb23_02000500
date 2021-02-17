@@ -1,0 +1,353 @@
+ https://github.com/avamsykiran/Java8_Feb17Feb23_02000500.git
+
+Java
+----------------------------------
+
+    simple high level 
+    partially but strictly object oriented
+    programming language.
+
+
+    Tokens
+    ----------------------------------------
+
+    Identifiers
+
+        is name given to any resource in the program
+
+        varable,method and object Identifiers
+
+                is all lower case, but follows init caps from
+                the second word onwards.
+
+                length
+                rommLength
+
+        class,interface or other Type Identifiers
+
+                All init caps
+
+                Exception
+                ArrayIndexOutOfBoundsException
+
+        constant Identifiers
+
+                all upper case an use _ between each word.
+
+                MIN_LIMIT
+                MAX_LIMIT
+
+    Comments
+
+        EOL     //
+        BLOCK   /*          */
+
+
+    Keywords
+
+
+    Operators
+
+            Aritmetic           +   -   *   /   %
+            
+            Assignment      =   +=  -=  *=  /=  %=
+                                    a+=5        a= a+5
+
+            Relational      ==  <   >   <=  >=  !=
+
+            Logical         &&  ||  !
+
+            unary           -   a=-b;
+                            --
+                            ++
+
+    Literals
+
+                c = 2 * PI * r;
+
+                Identifiers         c,PI,r
+                Operators           =,*,;
+                Literals            2          
+
+            Integer 
+                        int x = 12;         //decimal integer Literal
+                        int y = 045;        //octal integer Literal
+                        int a = 0xA4;       //hexa decimal integer Literal    
+
+            Floating Point
+                        double x = 89.0;
+                        float y = 78.9f;
+
+            String
+                        String s= "Hello";
+
+            Character
+                        char ch = 'A';
+
+            Boolean
+                        boolean isPrime = false;
+                        boolean isValid = true;
+
+            Reference
+                        null
+
+    Data Types
+    --------------------------------
+
+        Primitve
+
+                short
+                int
+                long
+                double
+                float
+                boolean
+                void
+                char
+
+        User Defiend Data Types
+
+                class
+                interface
+                enum
+                annotation
+
+    Control Stuctures
+    -----------------------------------------
+
+        Simple if
+        -----------------
+        if(cond){
+                .......................
+        }
+
+
+        If .. else
+        -------------------------------
+        if(cond){
+                ...//if cond true
+        } else {
+                ...//if cond false
+        }
+
+        If Ladder
+        ----------------------------------
+        if(cond1){
+                ..execute if cond1 is true
+        }else if(cond2) {
+                ..execute if cond1 is fale and cond2 is true
+        }else if(cond3) {
+                ..execute if cond1,cond2 are false and cond3 is true
+        }...... else{
+                ..execute if non of the conds are true.
+        }
+
+        Switch
+        ------------------------------
+        switch(expr) {
+          case aValue:
+                        execute if the expr evalautes to aValue
+                        break;
+          case anotherValue:
+                        execute if the expr evalautes to anotherValue
+                        break;
+          case anotherNewValue:                        
+                        execute if the expr evalautes to anotherNewValue
+                        break;
+          default:
+                        execute if non of the valeu match with the value of expr.
+                        break;
+          
+        }
+
+        Exit Check Indefinitve Loop (do..while)
+        --------------------------------------------
+        
+        do{
+            loop body...
+        }while(cond);
+
+
+        Entry Check InDefinitve Loop (while)
+        --------------------------------------------
+        
+        while(cond){
+            loop body...
+        }
+
+        Entry Check Definitve Loop (for)
+        --------------------------------------------
+        for(initialization;condition;inc/dec){
+                looping body
+        }
+
+        Non-Conditional Control Statements
+        ---------------------------------------
+        continue;  //skip anm iteration of a loop
+        break;     //termiant a loop before the termination condition is met.
+        return;   //termiante a method execution
+
+
+        JRE vs JVM  vs JDK ?
+        class loader?
+        grabbage collector?
+
+
+        Object Oriented Programming
+        ------------------------------------------
+
+                Class and Object
+
+                        class is a user defined data type,
+                        that defines the properties and behaviours of 
+                        an object.
+                        
+                        Properties are represented by variables called Fields.
+                        behaviours are represented by methods (function).
+
+
+                        class Rectangle {
+                                int length;
+                                int breadth;
+
+                                double getArea(){
+                                        return length*breadth;
+                                }
+                                double perimeter(){
+                                        return 2*(length+breadth);
+                                }
+                        }
+                
+
+                        object is an instance of class. is a variable of class type.
+
+                        Rectangle r1; //declaration
+                        r1 = new Rectangle(); //allocation
+
+                Encapsulation
+
+                        data hiding
+
+                        Encapsulation is achieved using
+                        access modifiers,
+
+                        default - no access modiofier is given
+                                
+                                class           such class can be accessed 
+                                                form wthin its package only.
+                                
+                                field,method
+                                           such fields or methods can be accessed 
+                                                with in the owner class
+                                                with in the classes belong to the 
+                                                        same package as that of 
+                                                        the owner class
+
+                                
+
+                        public
+                                class         such class can be accessed 
+                                                form wthin and outside its package.
+                                
+                                field,method
+                                        such fields or methods can be accessed 
+                                                with in the owner class and anywhere else
+                                         
+                        private
+                                field,method
+                                        such fields or methods can be accessed 
+                                                with in the owner class only
+                                                and nowhere else
+
+                        protected
+                                field,method
+                                        such fields or methods can be accessed 
+                                                with in the owner class 
+                                                and with in the sub-classes of owner class.
+                        
+                        STANDARD
+
+                                all fields are private always
+
+                                we defien a public set and public get for
+                                each field to be accessed.
+
+
+                        'this' keyword
+
+                                'this' refers to the object that 
+                                called the current method.
+
+                        'static' keyword
+
+                                static field
+
+                                        a non-static field (instacne variable)
+                                        is given a separate copy for each object
+
+                                        a static field (class variable)
+                                        is given a single copy for all the objects of the class.
+
+                                static method
+
+                                        a static method is used to 
+                                        define class level operations.
+
+                                        And static methods can not access 
+                                        this keyword or other non-static members. 
+
+                                        public static methods or fields 
+                                        are accessed with class name directly.
+
+                                static class
+
+                                        class MovieTicket{
+                                        
+                                          private String movieTitle;
+                                          private MovieTicketIdentity ticketId;
+
+                                          class MovieTicketIdentity{
+                                             private int seatNumber;
+                                             private LocalDateTime showDateṬime;
+                                          }//inner class
+                                          ......
+                                        }
+
+                                        if an inner class is static,
+                                        then it is called nested class.
+
+                                        And nested classes can have 
+                                        only static members.
+
+                                static blocks
+
+                                class Test {
+                                        static {
+                                          //a class can have one and only one static BLOCK
+                                          /*a static block is executed only once
+                                                jsut before the class is accessed for the 
+                                                first time.
+
+                                                declaring a class object (or)
+                                                allocating an object to a class (or)
+                                                calling a static method of a class (or)
+                                                doign any of the above on the sub-class of a class
+                                          */
+                                        }
+                                }
+
+                        constructors
+                
+                Polymorphisim
+                
+                Inheretence
+                
+                Abstraction
+
+
+
+
+
+
+
+
