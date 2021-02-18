@@ -1,0 +1,348 @@
+constructor
+
+    is a function that gets executed
+    immidiately after the allocation of 
+    an object.
+
+    1. Name of the constructor is after its class.
+    2. constructor does return anything.
+
+                   
+Polymorphisim
+
+    is the capability of defining 
+    more than one implmentation to the same function.
+
+    constructor overloading
+
+            having more than one constructor in the same class.
+            these constructors but differ in number of params or param types.
+
+        default constructor
+                having no args
+        paramatrized constructor
+                having args
+        copy constructor
+                having the object of the same class as arg.
+
+
+        we can call one constructor from another using 'this' keyword.
+
+    method overloading
+
+        two methods are said to be overloaded IF
+        1. they belong to the same class or to a super and sub classes
+        2. they share the same name
+        3. but they differ in params.
+
+    method overriding
+
+        two methods are said to be overiden IF
+        1. they belong to a super and sub classes
+        2. they share the same name
+        3. they share the same params count and params type and param order.
+
+Inheretence
+
+    deriving a new class from an existing class is called inheretence,
+
+    super class  <--------- sub class           Simple Inheetence
+
+    Employee  <------ Manager
+
+    Employee  <------ Manager <----- Director   Multi-Level Inheetence
+
+    Employee                                    Hirarchial Inheetence
+        |   <--------- Manager
+        |   <--------- ContractEmployee
+
+    Employee                                    Hybrid Inheetence
+        |   <--------- Manager  <----- Director
+        |   <--------- ContractEmployee        
+
+    Super1 <----------|                         Multiple 
+                      | <-----sub  (which is not supproted by java classes)
+    Super2 <----------|
+
+        A class cna inherit from only one super class maximum.
+
+        to derive a sub class from a suuper class , 'extends' keyword is used.
+
+    java.lang.Object (forced)
+        |
+    Employee                                
+        |   <--------- Manager  <----- Director
+        |   <--------- ContractEmployee        
+
+    Employee emp = new Employee(); //default Employee constructor
+    Manager mang = new Manager(); //default Employee constructor, default Manager constructor
+
+    'super' keyword is sued to call a specific super class constructor
+    from a sub class constructor.
+
+    we can not use this() and super() at a time?
+    this() must be used as the first statement in the constructor body.
+    And also super() must be used as the first statement in the constructor body.
+
+    and we can not have tow fisrt statements.
+
+    java.lang.Object  is the default super class for all java classes.
+
+            int hashcode()
+            boolean equals(Object)
+            String toString()
+
+Abstraction
+
+    Behaviour Hiding
+
+    abstract class
+
+            is a class to which an object can not be allocated.
+
+            abstract class Person
+                id,name,dob,gender
+                |
+                |- Student            
+                }- Teacher
+                |- NonTeachingStaff
+
+    abstract method
+            
+            which has no implmentation right now!!
+            to which the implmentation is done in future.
+
+
+            abstract class Loan {
+                private double p;
+                private double rateOfInterest;
+                private double timePeriod;
+
+                .......................
+
+                public abstract double getCompensiation();
+            }
+
+            if a class has an abstract function then the class also must be abstract.
+
+
+    'final' keyword
+    --------------------------
+
+        final variables are constants
+        final classes are no more inheritable
+        final methods are no more overridable
+
+
+        final and abstract are never used together.
+
+
+    interface
+--------------------------------------------
+            represent a role.
+
+            1. function without implmentation (abstract)
+            2. function with implmentation (default)
+            3. function that are static 
+            4. public static final Fields
+
+
+    abstract class                          interface
+    ------------------------------------------------------------------
+
+    abstract function                       abstract function
+
+    function with implmentation             function with implmentation / default methods
+
+    Fields                                  Only public static final Fields are allowed
+
+    do not suppert Multiple inheretence     supports Multiple inheretence
+
+    ----------------------------------------------------
+    interface I1{
+        public abstract String greet();
+    }
+
+    interface I2{
+        public abstract String greet();
+    }
+
+    class C1 implments I1,I2 {
+        public String greet(){
+            return "Hello";
+        }
+    }
+    ------------------------------------------------------
+
+    interface I1{
+        public abstract String greet();
+        public default String sayHello(){
+            return "Hello";
+        }
+    }
+
+    class C1 implments I1 {
+        public String greet(){
+            return "Hello";
+        }
+    }
+
+    ------------------------------------------------------
+
+    interface I1{
+        public abstract String greet();
+        public default String sayHello(){
+            return "Hello";
+        }
+    }
+
+    interface I2{
+        public abstract String greet();
+        public default String sayHello(){
+            return "Hai! How do you do?";
+        }
+    }
+
+    class C1 implments I1,I2 {
+        public String greet(){
+            return "Hello";
+        }
+        public String sayHello(){
+            //return I1.super.sayHello();
+            return I2.super.sayHello();
+        }
+    }
+
+    
+    Type Casting
+    -----------------------------------
+
+    double y = 90;      //implicit type castring
+    int x =(int)45.6;  //explicit type casting
+
+    int a = 'A'; //implicit type castring
+    char ch = 65;//implicit type castring
+
+    boolean can not be type casted!
+
+
+       Employee                                
+        |   <--------- Manager  <----- Director
+        |   <--------- ContractEmployee   
+
+    
+    Employee[] emps = new Employee[4];
+
+    emps[0] = new Employee();
+    emps[1] = new Manager();            //super class reference can point to sub-class objects.
+    emps[2] = new ContractEmployee();
+    emps[3] = new Director();
+
+    Employee emp = emps[0];
+    
+    //Manager  m = (Manager)emps[0]; //throw a ClassCastException
+
+    Manager m = (Manager) emps[1];
+    Manager m2 = (Manager)emps[3];
+
+    //Manager m3 = (Manager)emps[2]; //throw a ClassCastException
+
+
+Java SE Packages
+-------------------------------------------------------------------
+
+    java.lang           implicitly imported package.
+
+            Object 
+                        implicit super class
+
+                        int hashcode()
+                        boolean equals(Object)
+                        String toString()
+                        void wait()
+                        void yeild()
+                        void notify()
+                        void notifyAll()
+
+                        protected void finalize();
+
+            System
+                        public static PrintStream err;
+                        public static PrintStream out;
+                        public static InputStream in;
+
+                        public static void gc();
+
+            String
+
+                        String s1 = new String("Hello");
+
+                        String s2 = "Hello"; //"Hello" is allocated in a StringPool and the address
+                                                is copied to s2.
+                        String s3 = "Hello"; //"Hello" is already exisits in StringPool, its address
+                                                is copied to s3.
+
+                        s3==s2 //true
+                        s1==s2 //false
+
+                        s1.equals(s2)  // true
+                        s2.equals(s3)  //true
+
+                        string are immutable. String can not be modifed
+                        on the same memory , and each time 
+                        you mdofieid they are reallocated as new objects.
+
+
+                        Employee emp1 = new Employee(101,"Vamsy",569.0);
+                        Employee emp2 = emp1; //point to the same object as emp1.
+
+                        emp2.setBasic(0);
+                        emp1.getBasic(); //0
+
+                        String s1 ="Hello";
+                        String s2 = s1; //point to the same object as s1.
+
+                        s2 = s2 + " World";  //"Hello World" is reallocated in StringPool and 
+                                                s2 is redirected accordingly.
+
+                        System.out.println(s1); // Hello
+                        System.out.println(s2); // Hello World
+
+            StringBuffer
+            StringBuilder
+
+            Math
+
+            Wrapper Classes
+            ------------------------
+
+                    int         Integer
+                    float       Float
+                    double      Double
+                    short       Short
+                    ......etc
+
+                    class Book {
+
+                        ....
+                        private Integer numberOfCopies; //0 no books in stock
+                                                    //null copies count is not entered.
+
+                    }
+
+                    Boxing means converting primitive variable to Wrapper Object 
+                    UnBoxing means converting  Wrapper Object to primitive variable
+
+                    int x=90;
+
+                    Integer iobj = x; //auto-Boxing
+                    int y = iobj; //auto-UnBoxing
+
+
+    java.time
+    java.io
+    java.util
+    java.util.regex
+    java.util.function
+    java.util.stream
+    java.sql

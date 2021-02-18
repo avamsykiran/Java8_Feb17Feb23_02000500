@@ -9,6 +9,22 @@ public class Item {
 	private double price;
 	private boolean isFragile;
 	
+	public Item() {
+		System.out.println("an item created");
+	}
+			
+	public Item(int itemCode, String itemName, double price, boolean isFragile) {	
+		this();
+		this.itemCode = itemCode;
+		this.itemName = itemName;
+		this.price = price;
+		this.isFragile = isFragile;
+	}
+	
+	public Item(Item item) {
+		this(item.itemCode, item.itemName,item.price,item.isFragile);
+	}
+	
 	public int getItemCode() {
 		return itemCode;
 	}

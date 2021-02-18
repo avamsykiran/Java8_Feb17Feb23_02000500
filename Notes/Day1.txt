@@ -336,16 +336,7 @@ Java
                                         }
                                 }
 
-                        constructors
-                
-                Polymorphisim
-                
-                Inheretence
-                
-                Abstraction
-
-
-
+                     
 
 
 
