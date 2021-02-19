@@ -1,0 +1,281 @@
+
+    Exception Handling
+    -----------------------------------------------------------
+
+                Throwable
+                    |
+                -------------------
+                |                 |
+                Error           Exception
+                                  |     \
+                                  |     Inherited Exceptions Are Called CHECKED EXCEPTIONS
+                                  |
+                                RuntimeException
+                                            \
+                                        Inherited Exceptions (including RuntitmeException) 
+                                            Are Called UNCHECKED EXCEPTIONS
+
+        when Compiler detects an Exception                                            
+
+          If CHECKED EXCEPTIONS Are detected, it ensures those are handled using try..catch
+          If UNCHECKED EXCEPTIONS Are detected, it will not force them to be handled
+      
+        UNCHECKED EXCEPTIONS must be avoided through logical
+        constructs or defensive programming, hence no nbeed to handle
+
+        public void hikePay(Employee emp,double percent){
+            if(emp!=null){
+                emp.setBasic(emp.getBasic() + (emp.getBasic()*percent));
+            }
+        } 
+
+        CHECKED EXCEPTIONS can not be avoided through logical, hence must be handled using 
+        try...catch
+
+        User Defined Exception
+
+            class MyUnCheckedException extends RuntimeException{
+                public MyException(String errMSg){
+                    super(errMsg);
+                }
+            }
+
+            class MyCheckedException extends Exception {
+                public MyException(String errMSg){
+                    super(errMsg);
+                }
+            }
+
+        Raise User Defined Exception
+            
+            throw new MyCheckedException("I dont like this");
+
+        'throw' keyword raises an exception
+
+        'throws' keyword transfers an exception from a method to its caller.
+
+        finally block
+        --------------------
+
+            try{
+                ................
+            }catch(MyException exp){
+
+            }catch(AnotherException exp){
+
+            }.....finally {
+
+            }
+
+        MultiCatch Block
+        ---------------------
+
+            try{
+                ................
+            }catch(MyException | AnotherException exp){
+
+            }finally {
+
+            }
+
+        Try-with-resources
+        --------------------------
+
+            /*
+            Connection con=null;
+
+            try{
+                con = DriverManager.getConnection(dburl,uid,pwd);
+                .......
+            }catch(SQLException exp){
+
+            }finally{
+                if(con!=null){
+                    con.close();
+                }
+            }
+            */
+
+            try (
+                Connection con= DriverManager.getConnection(dburl,uid,pwd);
+                PreparedStatement pst = con.prepareStatement(qry);
+            ) {                
+                .......
+            }catch(SQLException exp){
+
+            }
+
+    java.time
+    -----------------------------------------------------------
+        DateTimeFormatter       
+                    .ofPattern("");
+
+        d   dd              Day
+        M   MM  MMM MMMM    Month
+        yy  yyyy            Year
+
+        h   hh  HH   HH     hour in 12 and 24 
+        m   mm              Minute
+        s   ss              second
+
+        a   aa              AM/PM
+
+        LocalDate
+        LocalDateTime
+        ZonedDate
+        ZonedDateTime
+                
+                Factory
+                    .now()
+                    .of(yyyy,month,dd)
+                    .of(yyyy,month,dd,hh,mm,ss)
+
+                Instance
+                    .format(DateTimeFormatter)
+                    .parse(String,DateTimeFormatter)
+                    .isBefore(LocalDate)
+                    .isAFter(LocalDate)
+                    .compareTo
+                    .plus----
+                    .minus---
+
+        Period          in term of months and days
+        Duration        in term of days and hours
+
+                    .between(start,end);     
+
+            Assignment:
+            -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+            Develop a java app:
+                1. to accept the loan detials
+                    a) loan amount
+                    b) rate of interest
+                    c) time period in month
+                    d) date of laon disbursment
+
+                2. validate (use exceptions) such that
+                    a) amount, rate of interest and time period can not be negtive.
+                    b) date of loan disbursment can not be a future date
+
+                3. display
+                    a) total simple interest
+                    b) date of total repayments
+                    c) amount payable
+
+    java.util
+    -----------------------------------------------------
+
+        Generics
+        ---------------------------------------------
+                are also called ADT (abstract data type)
+
+        class Swpper<T>{
+            public void swap(T v1,T v2){
+                T t;
+                t  = v1;
+                v1 = v2;
+                v2 = t;
+            }
+        }
+
+       Swapper<Employee> s1 = new Swapper<>();
+       s1.swap(emp1,emp2);
+
+       Swapper<Car> s2 = new Swapper<>();
+       s2.swap(car1,car2);
+   
+        Scanner
+        Random
+
+        Collections API
+        -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+            java approach to data structures.
+
+            --DECLARATIONS---(all interfaces)-------------------------------
+
+                Collection                      Map
+                    |                            |   
+                --------------                  SortedMap
+                |           |
+                Set         List
+                |
+                SortedSet
+
+                Collection represets a groups of homoginous elements (data structure)
+                                add(Object)
+                                remove(Object)
+                                isEmpty()
+                                contains(Object)
+
+                Set        represets a non-linear data structure
+                            elements are not in sequential position
+                            sequential access is possible
+                            random access is not possible
+                            duplicate elements are not allowed
+                            only one null allowed
+                            
+                List       represets a linear data structure
+                            elements are in sequential position
+                            sequential access is possible
+                            random access is also possible
+                            duplicate elements are allowed
+                            multiple nulls allowed
+
+                            Object get(int index)
+                            void set(int index,Object value)
+                            void removeAt(int index);
+
+                SortedSet  is a set with elements orderd on magnitude 
+
+                Map represets a group of (Key,Value) pairs
+                SortedMap ia a map where the elemetns are sorted on their keys
+
+
+            --IMPLIMENTATIONS--(classes that implement the interfaces)-----
+
+                Set
+                            HashSet            order of retrival is indefinite     
+                            LinkedHashSet      order of retrival is entry order
+                            TreeSet            order of retrival is by magnitude (value)  
+                                                    as dictated by java.lang.Comparable
+                                                    or java.util.Comparator
+
+                List
+                            Vector          uses growable array
+                                            thread safe and less efficient
+
+                            ArrayList       uses growable array
+                                            not thread sage and more efficient
+
+                            LinkedList      uses doubly linked list
+
+
+            --ALGORITHMS---(clases that offer specific operations)-----------
+
+
+                java.lang.Comprable
+
+                        int compareTo(Object);
+
+                java.util.Comparator
+
+                        int compare(Object,Object)
+
+                java.util.Arrays
+
+                java.util.Collections
+
+    
+    java.util.function
+    
+    java.util.stream
+
+
+    java.util.regex
+    
+    java.io
+
+
+    java.sql

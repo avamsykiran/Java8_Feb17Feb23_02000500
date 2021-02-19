@@ -339,10 +339,3 @@ Java SE Packages
                     int y = iobj; //auto-UnBoxing
 
 
-    java.time
-    java.io
-    java.util
-    java.util.regex
-    java.util.function
-    java.util.stream
-    java.sql
