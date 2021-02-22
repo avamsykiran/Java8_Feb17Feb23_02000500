@@ -252,6 +252,13 @@
                             LinkedList      uses doubly linked list
 
 
+                Map
+                            HashMap             order of retrival is indefinite  
+                            LinkedHashMap       order of retrival is entry order
+                            TreeMap             order of retrival is by magnitude of KEY
+                                                    as dictated by java.lang.Comparable
+                                                    or java.util.Comparator
+
             --ALGORITHMS---(clases that offer specific operations)-----------
 
 
@@ -268,14 +275,3 @@
                 java.util.Collections
 
     
-    java.util.function
-    
-    java.util.stream
-
-
-    java.util.regex
-    
-    java.io
-
-
-    java.sql
