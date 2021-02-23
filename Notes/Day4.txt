@@ -84,4 +84,29 @@
     java.sql
     ----------------------------------------------------------------------
 
+        DriverManager
+                        registerDriver(driverObject);
+                        getConnection(dbUrl,dbUid,dbPwd)
+
+        Connection
+                        PreparedStatement prepareStatement(String qry)
+                        Statement createStatement()
+                        CallableStatemnet prepareCall(String funccall)
+
+        DDL         PreparedStatement :: boolean execute();
+                    Statement :: boolean execute(String qry);       
         
+        DML         PreparedStatement :: int executeUpdate();
+                    Statement :: int executeUpdate(String qry);       
+                         
+        DRL         PreparedStatement :: ResultSet executeQuery();
+                    Statement :: ResultSet executeQuery(String qry);       
+
+
+        ResultSet
+                    next()
+                    getString
+                    getInt
+                    .....etc
+            
+
