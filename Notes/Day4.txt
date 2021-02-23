@@ -61,9 +61,27 @@
 
         int nums[] = {1,2,3,4,5};
         Stream s = Stream.of(nums);
-        s.reduce((n1,n2) -> n1+n2); //  (((1+2)+3)+4)+5
-
+        s.reduce((n1,n2) -> n1+n2); // (((1+2)+3)+4)+5
 
     java.io
 
+        Text Streams                    Binary Stream
+        -----------------------------------------------------------------
+        Reader      Writer              InputStream     OutputStream
+
+        File
+        FileInputStream
+        FileOutputStream
+        InputStreamReader
+        FileReader
+        FileWriter
+
+        BufferedReader
+
+        ObjectOutputStream
+        ObjectInputStream
+
     java.sql
+    ----------------------------------------------------------------------
+
+        

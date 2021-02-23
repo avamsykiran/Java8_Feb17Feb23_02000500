@@ -1,8 +1,9 @@
 package com.cts.ld.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Item implements Comparable<Item>{
+public class Item implements Comparable<Item>,Serializable{
 
 	private int icode;
 	private String name;
